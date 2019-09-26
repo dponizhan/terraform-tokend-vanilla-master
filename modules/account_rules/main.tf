@@ -162,6 +162,15 @@ resource tokend_account_rule "atomic_swap_ask_creator" {
   }
 }
 
+resource tokend_account_rule "swapper" {
+  action = "exchange"
+  entry_type = "swap"
+}
+
+output "swapper" {
+  value = "${tokend_account_rule.swapper.id}"
+}
+
 output "external_binder" {
   value = "${tokend_account_rule.external_binder.id}"
 }
